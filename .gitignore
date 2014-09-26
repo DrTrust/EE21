@@ -28,5 +28,6 @@
 *.app
 
 # Visal micro files
-/[Vv]isual\ [Mm]icro/
+[Vv]isual\ [Mm]icro/
 [Dd]ebug/
+Visual\ Micro/
