@@ -26,3 +26,7 @@
 *.exe
 *.out
 *.app
+
+# Visal micro files
+/[Vv]isual\ [Mm]icro/
+[Dd]ebug/

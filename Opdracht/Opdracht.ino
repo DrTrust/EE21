@@ -1,61 +1,56 @@
 #include "Bounce2\Bounce2.h"
 
 
+// Define pins
 #define BUTTON_PIN1 8
 #define BUTTON_PIN2 9
 #define LED_PIN 3
-
-
 
 // Instantiate a Bounce object
 Bounce debouncer1 = Bounce();
 Bounce debouncer2 = Bounce();
 
+
+// Globals
 static String input = "";
 int operator_type = 1;
-
 int previousstate = 0;
 
 void setup() {
-	// Setup the button
+	// Setup the buttons and activate pull-up
 	pinMode(BUTTON_PIN1, INPUT);
-	// Activate internal pull-up
 	digitalWrite(BUTTON_PIN1, HIGH);
-
 	pinMode(BUTTON_PIN2, INPUT);
-	// Activate internal pull-up
 	digitalWrite(BUTTON_PIN2, HIGH);
 
-	// After setting up the button, setup debouncer
+	// Setup debouncer
 	debouncer1.attach(BUTTON_PIN1);
 	debouncer1.interval(5);
-
 	debouncer2.attach(BUTTON_PIN2);
 	debouncer2.interval(5);
 
-	//Setup the LED
+	//Setup LED
 	pinMode(LED_PIN, OUTPUT);
 
+	// Setup serial connection
 	Serial.begin(9600);
-
 	Serial.write("Serial communication started!\n");
 
 }
 
 void loop() {
-	// On update bouncer value!!
+	// On update bouncer value
 	GetSerialInput();
 
 
-	//Check for update on any button
-	//Only on every 'true/high' state change should trigger an inversal of LED signal
+	// Check for update on any button
+	// Only on every 'true/high' state change should trigger an inversal of LED signal
 	if (debouncer1.update() || debouncer2.update())
 	{
 		static boolean oldreadstate_1 = true;
 		static boolean oldreadstate_2 = true;
 
-		//write new state to LED, INVERT state!
-
+		//write new state to LED, INVERT state
 		boolean readstate_1 = !debouncer1.read();
 		boolean readstate_2 = !debouncer2.read();
 
@@ -89,6 +84,8 @@ void loop() {
 	}
 }
 
+
+// Read the serial input, input must be between { and }
 void GetSerialInput()
 {
 	if (Serial.available())
@@ -118,10 +115,6 @@ void GetSerialInput()
 					if (mayRead)
 					{
 						validateCommand(inputbyte);
-
-						//input += inputbyte;
-
-						//validateCommand(inputbyte);
 					}
 				}
 			}
@@ -129,25 +122,26 @@ void GetSerialInput()
 	}
 }
 
+// Check the serial input, and write the correct operator_type
 void validateCommand(char inputString)
 {
 	switch (inputString)
 	{
 		case 'o':
 		{
-					Serial.write("OR operator selected\n");
+				Serial.write("OR operator selected\n");
 				operator_type = 1;
 				break;
 		}
 		case 'x':
 		{
-					Serial.write("XOR operator selected\n");
+				Serial.write("XOR operator selected\n");
 				operator_type = 2;
 				break;
 		}
 		case 'a':
 		{
-					Serial.write("AND operator selected\n");
+				Serial.write("AND operator selected\n");
 				operator_type = 3;
 				break;
 		}

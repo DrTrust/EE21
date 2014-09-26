@@ -5,13 +5,13 @@
 	        all non-arduino files created by visual micro and all visual studio project or solution files can be freely deleted and are not required to compile a sketch (do not delete your own code!).
 	        note: debugger breakpoints are stored in '.sln' or '.asln' files, knowledge of last uploaded breakpoints is stored in the upload.vmps.xml file. Both files are required to continue a previous debug session without needing to compile and upload again
 	
-	Hardware: Arduino Mega 2560 or Mega ADK, Platform=avr, Package=arduino
+	Hardware: Arduino Mega w/ ATmega2560 (Mega 2560), Platform=avr, Package=arduino
 */
 
 #ifndef _VSARDUINO_H_
 #define _VSARDUINO_H_
 #define __AVR_ATmega2560__
-#define ARDUINO 105
+#define ARDUINO 156
 #define ARDUINO_MAIN
 #define __AVR__
 #define __avr__
@@ -43,9 +43,9 @@ extern "C" void __cxa_pure_virtual() {;}
 void GetSerialInput();
 void validateCommand(char inputString);
 
-#include "C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
-#include "C:\Program Files (x86)\Arduino\hardware\arduino\variants\mega\pins_arduino.h" 
-#include "D:\Git REPO\EE21\Opdracht\Opdracht.ino"
-#include "D:\Git REPO\EE21\Opdracht\Bouncer.ino"
-#include "D:\Git REPO\EE21\Opdracht\resource.h"
+#include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\cores\arduino\arduino.h"
+#include "C:\Program Files (x86)\Arduino\hardware\arduino\avr\variants\mega\pins_arduino.h" 
+#include "C:\Users\Yop\Documents\GitHub\EE21\Opdracht\Opdracht.ino"
+#include "C:\Users\Yop\Documents\GitHub\EE21\Opdracht\Bouncer.ino"
+#include "C:\Users\Yop\Documents\GitHub\EE21\Opdracht\resource.h"
 #endif
