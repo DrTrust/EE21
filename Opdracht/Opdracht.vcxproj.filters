@@ -16,6 +16,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Opdracht.ino" />
+    <None Include="Bouncer.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Visual Micro\.Opdracht.vsarduino.h">
