@@ -45,7 +45,7 @@ void validateCommand(char inputString);
 
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\cores\arduino\arduino.h"
 #include "C:\Program Files (x86)\Arduino\hardware\arduino\variants\mega\pins_arduino.h" 
-#include "C:\Users\Marco\Documents\Arduino\Opdracht\Opdracht.ino"
-#include "C:\Users\Marco\Documents\Arduino\Opdracht\Bouncer.ino"
-#include "C:\Users\Marco\Documents\Arduino\Opdracht\resource.h"
+#include "D:\Git REPO\EE21\Opdracht\Opdracht.ino"
+#include "D:\Git REPO\EE21\Opdracht\Bouncer.ino"
+#include "D:\Git REPO\EE21\Opdracht\resource.h"
 #endif
