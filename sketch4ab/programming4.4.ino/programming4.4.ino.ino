@@ -32,8 +32,8 @@ void loop() {
   {
       if(!buttonstate1)
       {
-        Serial.println("State changed button one");
-        rgb.setColor(255,255,255);
+        Serial.println("Dimming light..");
+        rgb.fadeTo(255,255,255,255,4000);
         //analogWrite(8, 254);
       }
       
@@ -45,16 +45,16 @@ void loop() {
   {
       if(!buttonstate2)
       {
-        Serial.println("State changed button two");
-        rgb.setColor(0,0,0);
+        Serial.println("FULL POWAH light!");
+        rgb.fadeTo(0,0,0,255, 4000);
         //analogWrite(8, 0);
       }
       
       previousstate_button2 = buttonstate2;
   }
-  Serial.print("Button 1:");
+  /*Serial.print("Button 1:");
   Serial.print(buttonstate1);
   Serial.print(", ");
   Serial.print("Button 2:");
-  Serial.println(buttonstate2);
+  Serial.println(buttonstate2);*/
 }
